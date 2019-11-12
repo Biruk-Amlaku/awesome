@@ -78,15 +78,15 @@ function rules:init(args)
 		-- Tags placement
 		{
 			rule = { class = "Firefox" },
-			properties = { tag = "WEB" }
+			properties = { screen = 2,  tag = "WEB" }
 		},
 		{
 			rule = { class = "Thunderbird" },
-			properties = { tag = "MES" }
+			properties = { screen = 2,  tag = "MES" }
 		},
 		{
 			rule = { class = "Telegram" },
-			properties = { tag = "MES" }
+			properties = { screen = 2, tag = "MES" }
 		},
 
 		-- Jetbrains splash screen fix

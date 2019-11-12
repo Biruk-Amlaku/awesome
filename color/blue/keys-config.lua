@@ -658,16 +658,8 @@ function hotkeys:init(args)
 			{ description = "Show the top process list", group = "Widgets" }
 		},
 		{
-			{ env.mod, "Control" }, "m", function() redflat.widget.mail:update(true) end,
-			{ description = "Check new mail", group = "Widgets" }
-		},
-		{
 			{ env.mod, "Control" }, "i", function() redflat.widget.minitray:toggle() end,
 			{ description = "Show minitray", group = "Widgets" }
-		},
-		{
-			{ env.mod, "Control" }, "u", function() redflat.widget.updates:update(true) end,
-			{ description = "Check available updates", group = "Widgets" }
 		},
 		{
 			{ env.mod }, "g", function() qlaunch:show() end,
@@ -685,6 +677,14 @@ function hotkeys:init(args)
 		{
 			{ env.mod }, "Down", function() awful.layout.inc(-1) end,
 			{ description = "Select previous layout", group = "Layouts" }
+		},
+		{
+			{env.mod, "Control" } , "j", function() awful.screen.focus_relative(-1) end,
+			{ description = "Focus on previous screen", group = "Layouts" }
+		},
+		{
+			{env.mod, "Control" } , "l", function() awful.screen.focus_relative(1) end,
+			{ description = "Focus on next screen", group = "Layouts" }
 		},
 
 		{
@@ -805,6 +805,10 @@ function hotkeys:init(args)
 		{
 			{ env.mod }, "m", function(c) c.maximized = not c.maximized; c:raise() end,
 			{ description = "Maximize", group = "Client keys" }
+		},
+		{
+			{ env.mod }, "o", function(c) c:move_to_screen() end,
+			{ description = "Move client to next screen", group = "Client keys" }
 		}
 	}
 
