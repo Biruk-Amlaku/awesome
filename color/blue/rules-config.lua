@@ -77,7 +77,7 @@ function rules:init(args)
 
 		-- Tags placement
 		{
-			rule = { class = "Firefox" },
+			rule = { class = "Chromium" },
 			properties = { screen = 2,  tag = "WEB" }
 		},
 		{

@@ -10,7 +10,7 @@ local theme = require("themes/colored/theme")
 
 -- Color scheme
 -----------------------------------------------------------------------------------------------------------------------
-theme.color.main   = "#064E71"
+theme.color.main   = "#0495db"
 theme.color.urgent = "#B32601"
 
 
@@ -21,7 +21,15 @@ theme.path = awful.util.get_configuration_dir() .. "themes/blue"
 -- Main config
 --------------------------------------------------------------------------------
 theme.panel_height = 36 -- panel height
-theme.wallpaper    = theme.path .. "/wallpaper/custom.png"
+-- theme.wallpaper    = theme.path .. "/wallpaper/right_wallpaper.png"
+
+theme.wallpapers = theme.path .. "/wallpaper/"
+
+theme.wallpaper = 	{	
+						"right_wallpaper.png",
+						"left_wallpaper.png"
+					}
+						
 
 -- Setup parent theme settings
 --------------------------------------------------------------------------------
@@ -35,14 +43,14 @@ theme:update()
 --------------------------------------------------------------------------------
 theme.desktop.grid = {
 	width  = { 520, 520, 520 },
-	height = { 180, 160, 160, 138, 18 },
+	height = { 180, 160, 200, 25, 20 },
 	edge   = { width = { 60, 60 }, height = { 40, 40 } }
 }
 
 theme.desktop.places = {
-	netspeed = { 1, 1 },
-	ssdspeed = { 2, 1 },
-	hddspeed = { 3, 1 },
+	netspeed = { 1, 3 },
+	ssdspeed = { 3, 1 },
+	hddspeed = { 1, 1 },
 	cpumem   = { 1, 2 },
 	transm   = { 1, 3 },
 	disks    = { 1, 4 },

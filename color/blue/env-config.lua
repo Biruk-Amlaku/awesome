@@ -27,8 +27,8 @@ function env:init(args)
 	self.theme = args.theme or "red"
 	self.terminal = args.terminal or "konsole"
 	self.mod = args.mod or "Mod4"
-	self.fm = args.fm or "nemo"
-	self.mail = args.mail or "mailspring"
+	self.fm = args.fm or "nautilus"
+	self.mail = args.mail or "thunderbird"
 	self.player = args.player or "vlc"
 	self.updates = args.updates or "bash -c 'pacman -Qu | grep -v ignored | wc -l'"
 	self.home = os.getenv("HOME")
@@ -62,8 +62,8 @@ end
 --------------------------------------------------------------------------------
 env.wallpaper = function(s)
 	if beautiful.wallpaper then
-		if not env.desktop_autohide and awful.util.file_readable(beautiful.wallpaper) then
-			gears.wallpaper.maximized(beautiful.wallpaper, s, true)
+		if not env.desktop_autohide then
+			gears.wallpaper.maximized( beautiful.wallpapers .. tostring( beautiful.wallpaper[s.index]), s, true )
 		else
 			gears.wallpaper.set(beautiful.color and beautiful.color.bg)
 		end

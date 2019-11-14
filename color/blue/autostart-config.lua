@@ -27,6 +27,7 @@ function autostart.run()
 	awful.spawn.with_shell("compton")
         awful.spawn.with_shell("xscreensaver -no-splash")
 	awful.spawn.with_shell("xmodmap -e \"pointer = 3 2 1\"")
+	awful.spawn.with_shell("xrandr --auto --output DP2 --mode 1600x900 --right-of DP3")
 
 	-- apps
 	-- awful.spawn.with_shell("clipflap")

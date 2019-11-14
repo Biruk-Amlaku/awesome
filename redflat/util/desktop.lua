@@ -29,7 +29,7 @@ end
 ------------------------------------------------------------
 function desktop.wgeometry(grid, place, workarea)
 	return {
-		x = wposition(grid, place[1], workarea, "width"),
+		x = 2650,
 		y = wposition(grid, place[2], workarea, "height"),
 		width  = grid.width[place[1]],
 		height = grid.height[place[2]]
