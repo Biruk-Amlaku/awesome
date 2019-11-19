@@ -15,8 +15,8 @@ theme.path = awful.util.get_configuration_dir() .. "themes/colored"
 -- Main config
 ------------------------------------------------------------
 theme.panel_height        = 36 -- panel height
-theme.border_width        = 4  -- window border width
-theme.useless_gap         = 4  -- useless gap
+theme.border_width        = 2  -- window border width
+theme.useless_gap         = 2  -- useless gap
 
 -- Fonts
 ------------------------------------------------------------
@@ -193,7 +193,7 @@ function theme:update()
 
 	-- Hotkeys helper
 	------------------------------------------------------------
-	self.float.hotkeys.geometry = { width = 1800 }
+	self.float.hotkeys.geometry = { width = 1400, height = 850 }
 	self.float.hotkeys.heights = { key = 26, title = 32 }
 
 	-- Key sequence tip

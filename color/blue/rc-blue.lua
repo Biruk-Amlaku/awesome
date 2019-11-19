@@ -86,7 +86,7 @@ taglist.buttons = awful.util.table.join(
 -- Textclock widget
 --------------------------------------------------------------------------------
 local textclock = {}
-textclock.widget = redflat.widget.textclock({ timeformat = "%H:%M:%S", dateformat = "%b-%d-%a" })
+textclock.widget = redflat.widget.textclock({ timeformat = "%I:%M:%S", dateformat = "%b-%d-%a", timeout = 1 })
 
 -- Software update indcator
 --------------------------------------------------------------------------------
