@@ -30,6 +30,7 @@ function autostart.run()
 	-- awful.spawn.with_shell("xrandr --auto --output DP2 --mode 1600x900 --right-of DP3")
 
 	-- apps
+	awful.spawn.with_shell("liferea")
 	-- awful.spawn.with_shell("clipflap")
 	-- awful.spawn.with_shell("transmission-gtk -m")
 	-- awful.spawn.with_shell("pragha --toggle_view")

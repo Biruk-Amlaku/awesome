@@ -88,6 +88,14 @@ function rules:init(args)
 			rule = { class = "Telegram" },
 			properties = { screen = 2, tag = "MES" }
 		},
+        {
+            rule = { class = "BeeBEEP" },
+            properties = { screen = 2, tag = "MES" }
+		},
+		{
+            rule = { class = "Liferea" },
+            properties = { screen = 2, tag = "MES" }
+        },
 
 		-- Jetbrains splash screen fix
 		{
