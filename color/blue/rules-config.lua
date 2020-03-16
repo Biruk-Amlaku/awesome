@@ -82,10 +82,14 @@ function rules:init(args)
 		},
 		{
 			rule = { class = "Thunderbird" },
-			properties = { screen = 2,  tag = "MES" }
+			properties = { screen = 1,  tag = "MES" }
 		},
 		{
 			rule = { class = "Telegram" },
+			properties = { screen = 1, tag = "MES" }
+		},
+		{
+			rule = { class = "Liferea" },
 			properties = { screen = 2, tag = "MES" }
 		},
 

@@ -18,15 +18,15 @@ function autostart.run()
 	-- awful.spawn.with_shell("python ~/scripts/env/kbd-setup.py")
 
 	-- gnome environment
-	awful.spawn.with_shell("/usr/lib/polkit-kde-authentication-agent-1")
+	-- awful.spawn.with_shell("/usr/lib/polkit-kde-authentication-agent-1")
 
 	-- firefox sync
 	-- awful.spawn.with_shell("python ~/scripts/firefox/ff-sync.py")
 
 	-- utils
 	awful.spawn.with_shell("compton")
-    awful.spawn.with_shell("xscreensaver -no-splash")
-	awful.spawn.with_shell("xmodmap -e \"pointer = 3 2 1\"")
+        awful.spawn.with_shell("xscreensaver -no-splash")
+	-- awful.spawn.with_shell("xmodmap -e \"pointer = 3 2 1\"")
 	-- awful.spawn.with_shell("xrandr --auto --output DP2 --mode 1600x900 --right-of DP3")
 
 	-- apps

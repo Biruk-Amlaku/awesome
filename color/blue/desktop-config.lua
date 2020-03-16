@@ -34,7 +34,7 @@ function desktop:init(args)
 	local netspeed = { geometry = wgeometry(grid, places.netspeed, workarea) }
 
 	netspeed.args = {
-		interface    = "eno1",
+		interface    = "enp1s0",
 		maxspeed     = { up = 6*1024^2, down = 6*1024^2 },
 		crit         = { up = 6*1024^2, down = 6*1024^2 },
 		timeout      = 2,
@@ -64,7 +64,7 @@ function desktop:init(args)
 		interface = "sda",
 		meter_function = system.disk_speed,
 		timeout = 2,
-		label = "HARD DRIVE"
+		label = "SOLID DRIVE"
 	}
 
 	hddspeed.style = beautiful.individual.desktop.speedmeter.drive
@@ -75,7 +75,7 @@ function desktop:init(args)
 	local cpumem = { geometry = wgeometry(grid, places.cpumem, workarea) }
 
 	cpumem.args = {
-		topbars = { num = 12, maxm = 100, crit = 90 },
+		topbars = { num = 4, maxm = 100, crit = 90 },
 		lines   = { { maxm = 100, crit = 80 }, { maxm = 100, crit = 80 } },
 		meter   = { args = cpu_storage, func = system.dformatted.cpumem },
 		timeout = 2

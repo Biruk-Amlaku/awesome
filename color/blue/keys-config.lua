@@ -205,19 +205,19 @@ function hotkeys:init(args)
 	------------------------------------------------------------
 	local appswitcher_keys = {
 		{
-			{ env.mod }, "a", function() appswitcher:switch() end,
+			{ env.mod }, "Tab", function() appswitcher:switch() end,
 			{ description = "Select next app", group = "Navigation" }
 		},
 		{
-			{ env.mod, "Shift" }, "a", function() appswitcher:switch() end,
+			{ env.mod, "Shift" }, "Tab", function() appswitcher:switch() end,
 			{} -- hidden key
 		},
 		{
-			{ env.mod }, "q", function() appswitcher:switch({ reverse = true }) end,
+			{ env.mod }, "`", function() appswitcher:switch({ reverse = true }) end,
 			{ description = "Select previous app", group = "Navigation" }
 		},
 		{
-			{ env.mod, "Shift" }, "q", function() appswitcher:switch({ reverse = true }) end,
+			{ env.mod, "Shift" }, "`", function() appswitcher:switch({ reverse = true }) end,
 			{} -- hidden key
 		},
 		{
@@ -637,16 +637,16 @@ function hotkeys:init(args)
 			{ description = "Go to urgent client", group = "Client focus" }
 		},
 		{
-			{ env.mod }, "Tab", focus_to_previous,
+			{ env.mod }, "a", focus_to_previous,
 			{ description = "Go to previos client", group = "Client focus" }
 		},
 
 		{
-			{ env.mod }, "w", function() mainmenu:show() end,
+			{ env.mod }, "/", function() mainmenu:show() end,
 			{ description = "Show main menu", group = "Widgets" }
 		},
 		{
-			{ env.mod }, "r", function() apprunner:show() end,
+			{ env.mod }, ";", function() apprunner:show() end,
 			{ description = "Application launcher", group = "Widgets" }
 		},
 		{
@@ -710,32 +710,32 @@ function hotkeys:init(args)
 		},
 
 		{
-			{ env.mod }, "a", nil, function() appswitcher:show({ filter = current }) end,
+			{ env.mod }, "Tab", nil, function() appswitcher:show({ filter = current }) end,
 			{ description = "Switch to next with current tag", group = "Application switcher" }
 		},
 		{
-			{ env.mod }, "q", nil, function() appswitcher:show({ filter = current, reverse = true }) end,
+			{ env.mod }, "`", nil, function() appswitcher:show({ filter = current, reverse = true }) end,
 			{ description = "Switch to previous with current tag", group = "Application switcher" }
 		},
 		{
-			{ env.mod, "Shift" }, "a", nil, function() appswitcher:show({ filter = allscr }) end,
+			{ env.mod, "Shift" }, "Tab", nil, function() appswitcher:show({ filter = allscr }) end,
 			{ description = "Switch to next through all tags", group = "Application switcher" }
 		},
 		{
-			{ env.mod, "Shift" }, "q", nil, function() appswitcher:show({ filter = allscr, reverse = true }) end,
+			{ env.mod, "Shift" }, "`", nil, function() appswitcher:show({ filter = allscr, reverse = true }) end,
 			{ description = "Switch to previous through all tags", group = "Application switcher" }
 		},
 
 		{
-			{ env.mod }, "Escape", awful.tag.history.restore,
+			{ env.mod }, "Left", awful.tag.history.restore,
 			{ description = "Go previos tag", group = "Tag navigation" }
 		},
 		{
-			{ env.mod }, "Right", awful.tag.viewnext,
+			{ env.mod }, ".", awful.tag.viewnext,
 			{ description = "View next tag", group = "Tag navigation" }
 		},
 		{
-			{ env.mod }, "Left", awful.tag.viewprev,
+			{ env.mod }, "m", awful.tag.viewprev,
 			{ description = "View previous tag", group = "Tag navigation" }
 		},
 
@@ -787,7 +787,7 @@ function hotkeys:init(args)
 			{ description = "Toggle fullscreen", group = "Client keys" }
 		},
 		{
-			{ env.mod }, "F4", function(c) c:kill() end,
+			{ env.mod }, "Escape", function(c) c:kill() end,
 			{ description = "Close", group = "Client keys" }
 		},
 		{
@@ -803,7 +803,7 @@ function hotkeys:init(args)
 			{ description = "Minimize", group = "Client keys" }
 		},
 		{
-			{ env.mod }, "m", function(c) c.maximized = not c.maximized; c:raise() end,
+			{ env.mod }, ",", function(c) c.maximized = not c.maximized; c:raise() end,
 			{ description = "Maximize", group = "Client keys" }
 		},
 		{
@@ -860,8 +860,7 @@ function hotkeys:init(args)
 	self.mouse.client = awful.util.table.join(
 		awful.button({}, 1, function (c) client.focus = c; c:raise() end),
 		awful.button({}, 2, awful.mouse.client.move),
-		awful.button({ env.mod }, 3, awful.mouse.client.resize),
-		awful.button({}, 8, function(c) c:kill() end)
+		awful.button({ env.mod }, 3, awful.mouse.client.resize)
 	)
 
 	-- Set root hotkeys

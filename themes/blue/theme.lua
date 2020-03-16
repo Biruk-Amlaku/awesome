@@ -26,8 +26,9 @@ theme.panel_height = 36 -- panel height
 theme.wallpapers = theme.path .. "/wallpaper/"
 
 theme.wallpaper = 	{	
-						"right_wallpaper.png",
-						"left_wallpaper.png"
+						"left_wallpaper.png",
+						"overhead_wallpaper.png",
+						"right_wallpaper.png"
 					}
 						
 

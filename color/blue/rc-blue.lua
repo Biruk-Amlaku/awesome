@@ -123,7 +123,7 @@ redflat.float.player:init({ name = env.player })
 volume.buttons = awful.util.table.join(
 	awful.button({}, 4, function() volume.widget:change_volume()                end),
 	awful.button({}, 5, function() volume.widget:change_volume({ down = true }) end),
-	awful.button({}, 2, function() volume.widget:mute()                         end)
+	awful.button({}, 1, function() volume.widget:mute()                         end)
 )
 
 -- -- Keyboard layout indicator
@@ -166,16 +166,16 @@ local sysmon = { widget = {}, buttons = {}, icon = {} }
 sysmon.icon.network = redflat.util.table.check(beautiful, "wicon.wireless")
 sysmon.icon.cpuram = redflat.util.table.check(beautiful, "wicon.monitor")
 
--- -- battery
--- sysmon.widget.battery = redflat.widget.sysmon(
--- 	{ func = redflat.system.pformatted.bat(25), arg = "BAT0" },
--- 	{ timeout = 60, widget = redflat.gauge.icon.single, monitor = { is_vertical = true, icon = sysmon.icon.battery } }
--- )
+-- battery
+sysmon.widget.battery = redflat.widget.sysmon(
+	{ func = redflat.system.pformatted.bat(25), arg = "BAT0" },
+	{ timeout = 60, widget = redflat.gauge.icon.single, monitor = { is_vertical = true, icon = sysmon.icon.battery } }
+)
 
 -- network speed
 sysmon.widget.network = redflat.widget.net(
 	{
-		interface = "eno1",
+		interface = "enp1s0",
 		alert = { up = 5 * 1024^2, down = 5 * 1024^2 },
 		speed = { up = 6 * 1024^2, down = 6 * 1024^2 },
 		autoscale = false
@@ -257,16 +257,15 @@ awful.screen.connect_for_each_screen(
 
 				separator,
 				env.wrapper(sysmon.widget.network, "network"),
-				separator,
 				env.wrapper(sysmon.widget.cpuram, "cpuram", sysmon.buttons.cpuram),
 				separator,
 				env.wrapper(volume.widget, "volume", volume.buttons),
+				env.wrapper(sysmon.widget.battery, "battery"),
 				separator,
 				env.wrapper(textclock.widget, "textclock"),
 				separator,
 				env.wrapper(tray.widget, "tray", tray.buttons),
 				-- separator,
-				-- env.wrapper(sysmon.widget.battery, "battery"),
 			},
 		}
 	end
@@ -279,7 +278,9 @@ if not lock.desktop then
  	local desktop = require("color.blue.desktop-config") -- load file with desktop widgets configuration
 	desktop:init({
 		env = env,
-		buttons = awful.util.table.join(awful.button({}, 3, function () mymenu.mainmenu:toggle() end))
+		buttons = awful.util.table.join(
+			awful.button({}, 3, function () mymenu.mainmenu:toggle() end)
+		)
 	})
 end
 

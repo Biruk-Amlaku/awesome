@@ -53,14 +53,14 @@ function menu:init(args)
 	-- Places submenu
 	------------------------------------------------------------
 	local placesmenu = {
+		{ "Desktop",     env.fm .. " Desktop", micon("folder-documents") },
 		{ "Documents",   env.fm .. " Documents", micon("folder-documents") },
 		{ "Downloads",   env.fm .. " Downloads", micon("folder-download")  },
 		{ "Music",       env.fm .. " Music",     micon("folder-music")     },
 		{ "Pictures",    env.fm .. " Pictures",  micon("folder-pictures")  },
 		{ "Videos",      env.fm .. " Videos",    micon("folder-videos")    },
 		separator,
-		{ "Media",       env.fm .. " /mnt/media",   micon("folder-bookmarks") },
-		{ "Storage",     env.fm .. " /mnt/storage", micon("folder-bookmarks") },
+		{ "Home",       env.fm .. " .",   micon("folder-bookmarks") },
 	}
 
 	-- Exit submenu
@@ -78,15 +78,15 @@ function menu:init(args)
 	------------------------------------------------------------
 	self.mainmenu = redflat.menu({ theme = theme,
 		items = {
-			{ "Awesome",       awesomemenu, micon("awesome") },
 			{ "Applications",  appmenu,     micon("distributor-logo") },
 			{ "Places",        placesmenu,  micon("folder_home"), key = "c" },
 			separator,
+			{ "Files",         env.fm,       micon("folder"), key = "n" },
+			{ "Editor",        env.editor,      micon("code") },
+			{ "Browser",       env.browser,  micon("folder"), key = "r" },
 			{ "Terminal",      env.terminal, micon("terminal") },
-			{ "Nemo",          env.fm,       micon("folder"), key = "n" },
-			{ "Ranger",        ranger_comm,  micon("folder"), key = "r" },
-			{ "Editor",        "emacs",      micon("emacs") },
 			separator,
+			{ "Awesome",       awesomemenu, micon("awesome") },
 			{ "Exit",          exitmenu,     micon("exit") },
 		}
 	})

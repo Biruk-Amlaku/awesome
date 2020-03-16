@@ -24,8 +24,10 @@ function env:init(args)
 	args = args or {}
 
 	-- environment vars
-	self.theme = args.theme or "red"
-	self.terminal = args.terminal or "konsole"
+	self.theme = args.theme or "blue"
+	self.terminal = args.terminal or "terminator"
+	self.browser = args.browser or "firefox"
+	self.editor = args.editor or "code"
 	self.mod = args.mod or "Mod4"
 	self.fm = args.fm or "nautilus"
 	self.mail = args.mail or "thunderbird"
@@ -73,11 +75,7 @@ end
 -- Tag tooltip text generation
 --------------------------------------------------------------------------------
 env.tagtip = function(t)
-	local layname = awful.layout.getname(awful.tag.getproperty(t, "layout"))
-	if redflat.util.table.check(beautiful, "widget.layoutbox.name_alias") then
-		layname = beautiful.widget.layoutbox.name_alias[layname] or layname
-	end
-	return string.format("%s (%d apps) [%s]", t.name, #(t:clients()), layname)
+	return string.format("%s (%d apps)", t.name, #(t:clients()))
 end
 
 -- Panel widgets wrapper
