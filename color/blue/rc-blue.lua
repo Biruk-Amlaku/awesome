@@ -88,9 +88,6 @@ taglist.buttons = awful.util.table.join(
 local textclock = {}
 textclock.widget = redflat.widget.textclock({ timeformat = "%a %b-%d, %I:%M:%S", dateformat = "%b-%d-%a", timeout = 1 })
 
--- Software update indcator
---------------------------------------------------------------------------------
---redflat.widget.updates:init({ command = env.updates })
 
 -- Layoutbox configure
 --------------------------------------------------------------------------------
