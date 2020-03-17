@@ -70,7 +70,7 @@ local function default_style()
 		micon          = { blank = redutil.base.placeholder({ txt = " " }),
 		                   check = redutil.base.placeholder({ txt = "+" }) },
 		layout_icon    = { unknown = redutil.base.placeholder() },
-		titleline      = { font = "Sans 16 bold", height = 35 },
+		titleline      = { font = "Sans 12 bold", height = 35 },
 		stateline      = { height = 35 },
 		state_iconsize = { width = 20, height = 20 },
 		separator      = { marginh = { 3, 3, 5, 5 } },

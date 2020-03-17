@@ -22,6 +22,7 @@ local beautiful = require("beautiful")
 local timer = require("gears.timer")
 
 local redutil = require("redflat.util")
+local redflat = require("redflat")
 local basetag = require("redflat.gauge.tag")
 local tooltip = require("redflat.float.tooltip")
 
@@ -34,7 +35,7 @@ local taglist = { filter = {}, mt = {} , queue = setmetatable({}, { __mode = 'k'
 local function default_style()
 	local style = {
 		tag       = {},
-		widget    = basetag.blue.new,
+		widget    = basetag.blue_icon.new,
 		show_tip  = false,
 		timeout   = 0.05,
 		separator = nil
@@ -64,8 +65,9 @@ local function get_state(t)
 	state.active = t.selected
 	state.occupied = client_count > 0 and not (client_count == 1 and state.focus)
 	state.text = string.upper(t.name)
+	state.icon = redflat.util.table.check(beautiful, t.icon)
 	state.layout = awful.tag.getproperty(t, "layout")
-
+	
 	return state
 end
 

@@ -1419,9 +1419,9 @@ function theme:init()
 	self.naughty = {}
 
 	self.naughty.base = {
-		timeout      = 10,
+		timeout      = 0,
 		margin       = 12,
-		icon_size    = 80,
+		icon_size    = 40,
 		font         = self.fonts.main,
 		bg           = self.color.wibox,
 		fg           = self.color.text,
@@ -1436,7 +1436,7 @@ function theme:init()
 	}
 
 	self.naughty.low = {
-		timeout = 5,
+		timeout = 0,
 		height = self.float.notify.geometry.height,
 		width = self.float.notify.geometry.width,
 	}

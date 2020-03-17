@@ -72,7 +72,7 @@ tasklist.buttons = awful.util.table.join(
 -- Taglist widget
 --------------------------------------------------------------------------------
 local taglist = {}
-taglist.style = { separator = separator, widget = redflat.gauge.tag.blue.new, show_tip = true }
+taglist.style = { separator = separator, widget = redflat.gauge.tag.blue_icon.new, show_tip = true, tag = {width = 50} }
 taglist.buttons = awful.util.table.join(
 	awful.button({         }, 1, function(t) t:view_only() end),
 	awful.button({ env.mod }, 1, function(t) if client.focus then client.focus:move_to_tag(t) end end),
@@ -126,61 +126,18 @@ volume.buttons = awful.util.table.join(
 	awful.button({}, 1, function() volume.widget:mute()                         end)
 )
 
--- -- Keyboard layout indicator
--- --------------------------------------------------------------------------------
--- local kbindicator = {}
--- redflat.widget.keyboard:init({ "English", "Russian" })
--- kbindicator.widget = redflat.widget.keyboard()
-
--- kbindicator.buttons = awful.util.table.join(
--- 	awful.button({}, 1, function () redflat.widget.keyboard:toggle_menu() end),
--- 	awful.button({}, 4, function () redflat.widget.keyboard:toggle()      end),
--- 	awful.button({}, 5, function () redflat.widget.keyboard:toggle(true)  end)
--- )
-
--- -- Mail widget
--- --------------------------------------------------------------------------------
--- -- mail settings template
--- local my_mails = require("color.blue.mail-example")
-
--- -- safe load private mail settings
--- pcall(function() my_mails = require("private.mail-config") end)
-
--- -- widget setup
--- local mail = {}
--- redflat.widget.mail:init({ maillist = my_mails })
--- mail.widget = redflat.widget.mail()
-
--- -- buttons
--- mail.buttons = awful.util.table.join(
--- 	awful.button({ }, 1, function () awful.spawn.with_shell(env.mail) end),
--- 	awful.button({ }, 2, function () redflat.widget.mail:update(true) end)
--- )
-
 -- System resource monitoring widgets
 --------------------------------------------------------------------------------
 local sysmon = { widget = {}, buttons = {}, icon = {} }
 
--- icons
---sysmon.icon.battery = redflat.util.table.check(beautiful, "wicon.battery")
-sysmon.icon.network = redflat.util.table.check(beautiful, "wicon.wireless")
+-- ./icons
+sysmon.icon.battery = redflat.util.table.check(beautiful, "wicon.battery")
 sysmon.icon.cpuram = redflat.util.table.check(beautiful, "wicon.monitor")
 
 -- battery
 sysmon.widget.battery = redflat.widget.sysmon(
 	{ func = redflat.system.pformatted.bat(25), arg = "BAT0" },
 	{ timeout = 60, widget = redflat.gauge.icon.single, monitor = { is_vertical = true, icon = sysmon.icon.battery } }
-)
-
--- network speed
-sysmon.widget.network = redflat.widget.net(
-	{
-		interface = "enp1s0",
-		alert = { up = 5 * 1024^2, down = 5 * 1024^2 },
-		speed = { up = 6 * 1024^2, down = 6 * 1024^2 },
-		autoscale = false
-	},
-	{ timeout = 2, widget = redflat.gauge.monitor.double, monitor = { icon = sysmon.icon.network } }
 )
 
 -- CPU and RAM usage
@@ -219,8 +176,90 @@ awful.screen.connect_for_each_screen(
 		-- wallpaper
 		env.wallpaper(s)
 
-		-- tags
-		awful.tag({ "MAIN", "MES", "WEB", "DEV", "MISC" }, s, { al[1], al[1], al[1], al[1], al[1] })
+		if s.index == 1 then
+			awful.tag.add("Main", {
+				icon = "wicon.main",
+				layout = al[1],
+				screen = s,
+				selected = true,
+			})
+
+			awful.tag.add("Message", {
+				icon = "wicon.message",
+				layout = al[1],
+				screen = s,
+			})
+
+			awful.tag.add("Web", {
+				icon = "wicon.web",
+				layout = al[1],
+				screen = s,
+			})
+
+			awful.tag.add("Doc", {
+				icon = "wicon.doc",
+				layout = al[1],
+				screen = s,
+			})
+		elseif s.index == 2 then
+			awful.tag.add("Main", {
+				icon = "wicon.main",
+				layout = al[1],
+				screen = s,
+				selected = true,
+			})
+
+			awful.tag.add("Web", {
+				icon = "wicon.web",
+				layout = al[1],
+				screen = s,
+			})
+
+			awful.tag.add("Dev", {
+				icon = "wicon.dev",
+				layout = al[1],
+				screen = s,
+			})
+
+			awful.tag.add("Doc", {
+				icon = "wicon.doc",
+				layout = al[1],
+				screen = s,
+			})
+
+		elseif s.index == 3 then
+			awful.tag.add("Main", {
+				icon = "wicon.main",
+				layout = al[1],
+				screen = s,
+				selected = true,
+			})
+
+			awful.tag.add("Web", {
+				icon = "wicon.web",
+				layout = al[1],
+				screen = s,
+			})
+
+			awful.tag.add("Dev", {
+				icon = "wicon.dev",
+				layout = al[1],
+				screen = s,
+			})
+
+			awful.tag.add("Doc", {
+				icon = "wicon.doc",
+				layout = al[1],
+				screen = s,
+			})
+		else 
+			awful.tag.add("Main", {
+				icon = "wicon.main",
+				layout = al[1],
+				screen = s,
+				selected = true,
+			})
+		end
 
 		-- layoutbox widget
 		layoutbox[s] = redflat.widget.layoutbox({ screen = s })
@@ -256,7 +295,6 @@ awful.screen.connect_for_each_screen(
 				layout = wibox.layout.fixed.horizontal,
 
 				separator,
-				env.wrapper(sysmon.widget.network, "network"),
 				env.wrapper(sysmon.widget.cpuram, "cpuram", sysmon.buttons.cpuram),
 				separator,
 				env.wrapper(volume.widget, "volume", volume.buttons),

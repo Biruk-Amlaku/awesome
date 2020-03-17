@@ -24,17 +24,17 @@ theme.fonts = {
 	main     = "Roboto 13",      -- main font
 	menu     = "Roboto 13",      -- main menu font
 	tooltip  = "Roboto 13",      -- tooltip font
-	notify   = "Play bold 14",   -- redflat notify popup font
-	clock    = "Play bold 12",   -- textclock widget font
-	qlaunch  = "Play bold 14",   -- quick launch key label font
+	notify   = "Play bold 12",   -- redflat notify popup font
+	clock    = "Play bold 10",   -- textclock widget font
+	qlaunch  = "Play bold 12",   -- quick launch key label font
 	keychain = "Play bold 16",   -- key sequence tip font
 	title    = "Roboto bold 13", -- widget titles font
 	tiny     = "Roboto bold 10", -- smallest font for widgets
-	titlebar = "Roboto bold 13", -- client titlebar font
+	titlebar = "Roboto bold 10", -- client titlebar font
 	hotkeys  = {
-		main  = "Roboto 14",             -- hotkeys helper main font
-		key   = "Iosevka Term Light 14", -- hotkeys helper key font (use monospace for align)
-		title = "Roboto bold 16",        -- hotkeys helper group title font
+		main  = "Roboto 10",             -- hotkeys helper main font
+		key   = "Iosevka Term Light 10", -- hotkeys helper key font (use monospace for align)
+		title = "Roboto bold 12",        -- hotkeys helper group title font
 	},
 	player   = {
 		main = "Play bold 13", -- player widget main font
@@ -43,8 +43,8 @@ theme.fonts = {
 }
 
 theme.cairo_fonts = {
-	tag         = { font = "Play", size = 16, face = 1 }, -- tag widget font
-	appswitcher = { font = "Play", size = 20, face = 1 }, -- appswitcher widget font
+	tag         = { font = "Play", size = 12, face = 1 }, -- tag widget font
+	appswitcher = { font = "Play", size = 15, face = 1 }, -- appswitcher widget font
 	navigator   = {
 		title = { font = "Play", size = 28, face = 1, slant = 0 }, -- window navigation title font
 		main  = { font = "Play", size = 22, face = 1, slant = 0 }  -- window navigation  main font
@@ -58,6 +58,11 @@ theme.cairo_fonts = {
 -- Widget icons
 --------------------------------------------------------------------------------
 theme.wicon = {
+	main = theme.path .. "/widget/main.svg",
+	message = theme.path .. "/widget/message.svg",
+	web = theme.path .. "/widget/web.svg",
+	dev = theme.path .. "/widget/dev.svg",
+	doc = theme.path .. "/widget/doc.svg",
 	battery    = theme.path .. "/widget/battery.svg",
 	wireless   = theme.path .. "/widget/wireless.svg",
 	monitor    = theme.path .. "/widget/monitor.svg",
@@ -111,7 +116,7 @@ function theme:update()
 
 	-- Desktop file parser
 	--------------------------------------------------------------------------------
-	self.service.dfparser.icons.theme         = self.homedir .. "/.icons/ACYLS"
+	self.service.dfparser.icons.theme         = self.homedir .. "/.icons/default"
 	self.service.dfparser.icons.custom_only   = true
 	self.service.dfparser.icons.scalable_only = true
 
@@ -132,7 +137,7 @@ function theme:update()
 	-- Volume control
 	------------------------------------------------------------
 	self.gauge.audio.red.icon = { volume = self.wicon.audio, mute = self.wicon.mute }
-	self.gauge.audio.blue.icon = self.wicon.headphones
+	self.gauge.audio.blue.icon = self.wicon.audio
 
 	-- Pulseaudio volume control
 	------------------------------------------------------------
@@ -193,7 +198,7 @@ function theme:update()
 
 	-- Hotkeys helper
 	------------------------------------------------------------
-	self.float.hotkeys.geometry = { width = 1400, height = 850 }
+	self.float.hotkeys.geometry = { width = 1275, height = 750 }
 	self.float.hotkeys.heights = { key = 26, title = 32 }
 
 	-- Key sequence tip
