@@ -88,6 +88,10 @@ function rules:init(args)
 			rule = { class = "Liferea" },
 			properties = { screen = 1, tag = "Message" }
 		},
+		{
+			rule = { class = "vlc" },
+			properties = { tag = "Media" }
+		},
 
 		-- Jetbrains splash screen fix
 		{
