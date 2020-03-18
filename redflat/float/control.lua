@@ -58,15 +58,15 @@ end
 control.keys = {}
 control.keys.control = {
 	{
-		{ "Mod4" }, "c", function() control:center() end,
+		{ "Mod4" }, ",", function() control:center() end,
 		{ description = "Put window at the center", group = "Window control" }
 	},
 	{
-		{ "Mod4" }, "q", function() control:resize() end,
+		{ "Mod4" }, ".", function() control:resize() end,
 		{ description = "Increase window size", group = "Window control" }
 	},
 	{
-		{ "Mod4" }, "a", function() control:resize(true) end,
+		{ "Mod4" }, "m", function() control:resize(true) end,
 		{ description = "Decrease window size", group = "Window control" }
 	},
 	{

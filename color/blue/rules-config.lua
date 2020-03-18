@@ -86,11 +86,7 @@ function rules:init(args)
 		},
 		{
 			rule = { class = "Liferea" },
-			properties = { screen = 2, tag = "Message" }
-		},
-		{
-			rule = { class = "Code" },
-			properties = { tag = "Dev" }
+			properties = { screen = 1, tag = "Message" }
 		},
 
 		-- Jetbrains splash screen fix
