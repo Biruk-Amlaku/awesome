@@ -642,7 +642,7 @@ function hotkeys:init(args)
 		},
 
 		{
-			{ env.mod }, "/", function() mainmenu:show() end,
+			{ env.mod }, " ", function() mainmenu:show() end,
 			{ description = "Show main menu", group = "Widgets" }
 		},
 		{
