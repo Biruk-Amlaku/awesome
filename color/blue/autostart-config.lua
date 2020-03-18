@@ -13,13 +13,13 @@ local autostart = {}
 --------------------------------------------------------------------------------
 function autostart.run()
     -- environment
-    awful.spawn.with_shell("pulseaudio --start")
+    awful.spawn("pulseaudio --start")
     awful.spawn.with_shell("screenalign")
-    awful.spawn.with_shell("nm-applet")
+    awful.spawn("nm-applet")
 
     -- utils
     -- awful.spawn.with_shell("compton")
-    awful.spawn.with_shell("xscreensaver -no-splash")
+    awful.spawn("xscreensaver -no-splash")
 
     -- apps
     -- awful.spawn.with_shell("clipflap")

@@ -119,7 +119,7 @@ redflat.float.player:init({ name = env.player })
 
 volume.buttons = awful.util.table.join(
 	awful.button({}, 1, function() volume.widget:mute()                         end),
-	awful.button({}, 3, function() awful.spawn.with_shell("pavucontrol -t 5")        end),
+	awful.button({}, 3, function() awful.spawn("pavucontrol -t 5")        end),
 	awful.button({}, 4, function() volume.widget:change_volume()                end),
 	awful.button({}, 5, function() volume.widget:change_volume({ down = true }) end)
 )
@@ -274,6 +274,12 @@ awful.screen.connect_for_each_screen(
 				layout = al[1],
 				screen = s,
 				selected = true,
+			})
+
+			awful.tag.add("Web", {
+				icon = "wicon.web",
+				layout = al[1],
+				screen = s,
 			})
 
 			awful.tag.add("Doc", {
