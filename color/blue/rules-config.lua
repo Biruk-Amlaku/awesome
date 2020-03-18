@@ -74,15 +74,25 @@ function rules:init(args)
 			rule_any   = { type = { "normal" }},
 			properties = { placement = awful.placement.no_overlap + awful.placement.no_offscreen }
 		},
+		
+		{
+			rule = { instance = "pavucontrol" },
+			properties = { titlebars_enabled = false, floating = true, focus, width=900, height=600, placement=awful.placement.top+awful.placement.top_right }
+		},
+
 
 		-- Tags placement
+		{
+			rule = { class = "Firefox" },
+			properties = {tag = "Web"}
+		},
 		{
 			rule = { class = "Thunderbird" },
 			properties = { screen = 1,  tag = "Message" }
 		},
 		{
 			rule = { class = "Telegram" },
-			properties = { screen = 1, tag = "Message" }
+			properties = { screen = 1, tag = "Message", switchtotag = true }
 		},
 		{
 			rule = { class = "Liferea" },
@@ -90,7 +100,7 @@ function rules:init(args)
 		},
 		{
 			rule = { class = "vlc" },
-			properties = { tag = "Media" }
+			properties = { tag = "Media", switchtotag = true }
 		},
 
 		-- Jetbrains splash screen fix
