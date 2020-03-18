@@ -22,7 +22,7 @@ rules.base_properties = {
 
 rules.floating_any = {
 	class = {
-		"Clipflap", "Run.py",
+		"Clipflap", "Run.py", "Volume Control", "pavucontrol",
 	},
 	role = { "AlarmWindow", "pop-up", },
 	type = { "dialog" }
