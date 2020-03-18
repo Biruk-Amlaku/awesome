@@ -21,9 +21,6 @@ rules.base_properties = {
 }
 
 rules.floating_any = {
-	class = {
-		"Clipflap", "Run.py", "Volume Control", "pavucontrol",
-	},
 	role = { "AlarmWindow", "pop-up", },
 	type = { "dialog" }
 }
@@ -55,7 +52,7 @@ function rules:init(args)
 		},
 		{
 			rule_any   = args.floating_any or self.floating_any,
-			properties = { floating = true }
+			properties = { floating = true, placement = awful.placement.centered, focus }
 		},
 		{
 			rule_any   = self.maximized,
@@ -84,7 +81,7 @@ function rules:init(args)
 		-- Tags placement
 		{
 			rule = { class = "Firefox" },
-			properties = {tag = "Web"}
+			properties = { tag = "Web", switchtotag = true }
 		},
 		{
 			rule = { class = "Thunderbird" },
@@ -92,11 +89,11 @@ function rules:init(args)
 		},
 		{
 			rule = { class = "Telegram" },
-			properties = { screen = 1, tag = "Message", switchtotag = true }
+			properties = { screen = "eDP-1", tag = "Message", switchtotag = true }
 		},
 		{
 			rule = { class = "Liferea" },
-			properties = { screen = 1, tag = "Message" }
+			properties = { screen = "eDP-1", tag = "Message" }
 		},
 		{
 			rule = { class = "vlc" },
