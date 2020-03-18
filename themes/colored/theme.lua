@@ -63,6 +63,7 @@ theme.wicon = {
 	web = theme.path .. "/widget/web.svg",
 	dev = theme.path .. "/widget/dev.svg",
 	doc = theme.path .. "/widget/doc.svg",
+	media = theme.path .. "/widget/media.svg",
 	battery    = theme.path .. "/widget/battery.svg",
 	wireless   = theme.path .. "/widget/wireless.svg",
 	monitor    = theme.path .. "/widget/monitor.svg",

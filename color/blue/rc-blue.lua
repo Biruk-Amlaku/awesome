@@ -198,6 +198,12 @@ awful.screen.connect_for_each_screen(
 				layout = al[1],
 				screen = s,
 			})
+
+			awful.tag.add("Media", {
+				icon = "wicon.media",
+				layout = al[1],
+				screen = s,
+			})
 		elseif s.index == 2 then
 			awful.tag.add("Main", {
 				icon = "wicon.main",
@@ -220,6 +226,12 @@ awful.screen.connect_for_each_screen(
 
 			awful.tag.add("Doc", {
 				icon = "wicon.doc",
+				layout = al[1],
+				screen = s,
+			})
+
+			awful.tag.add("Media", {
+				icon = "wicon.media",
 				layout = al[1],
 				screen = s,
 			})
@@ -249,12 +261,30 @@ awful.screen.connect_for_each_screen(
 				layout = al[1],
 				screen = s,
 			})
+
+			awful.tag.add("Media", {
+				icon = "wicon.media",
+				layout = al[1],
+				screen = s,
+			})
 		else 
 			awful.tag.add("Main", {
 				icon = "wicon.main",
 				layout = al[1],
 				screen = s,
 				selected = true,
+			})
+
+			awful.tag.add("Doc", {
+				icon = "wicon.doc",
+				layout = al[1],
+				screen = s,
+			})
+
+			awful.tag.add("Media", {
+				icon = "wicon.media",
+				layout = al[1],
+				screen = s,
 			})
 		end
 
