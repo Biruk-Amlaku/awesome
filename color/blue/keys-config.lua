@@ -731,11 +731,11 @@ function hotkeys:init(args)
 			{ description = "Go previos tag", group = "Tag navigation" }
 		},
 		{
-			{ env.mod }, ".", awful.tag.viewnext,
+			{ env.mod, "Shift" }, "l", awful.tag.viewnext,
 			{ description = "View next tag", group = "Tag navigation" }
 		},
 		{
-			{ env.mod }, "m", awful.tag.viewprev,
+			{ env.mod, "Shift" }, "j", awful.tag.viewprev,
 			{ description = "View previous tag", group = "Tag navigation" }
 		},
 
@@ -803,7 +803,7 @@ function hotkeys:init(args)
 			{ description = "Minimize", group = "Client keys" }
 		},
 		{
-			{ env.mod }, ",", function(c) c.maximized = not c.maximized; c:raise() end,
+			{ env.mod }, "m", function(c) c.maximized = not c.maximized; c:raise() end,
 			{ description = "Maximize", group = "Client keys" }
 		},
 		{
