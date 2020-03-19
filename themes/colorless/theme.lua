@@ -750,8 +750,6 @@ function theme:init()
 
 	-- task text aliases
 	self.widget.tasklist.appnames = {}
-	self.widget.tasklist.appnames["Firefox"             ] = "FIFOX"
-	self.widget.tasklist.appnames["Gnome-terminal"      ] = "GTERM"
 
 
 	-- Floating widgets
@@ -889,7 +887,7 @@ function theme:init()
 		parser = {
 			desktop_file_dirs = awful.util.table.join(
 				self.service.dfparser.desktop_file_dirs,
-				{ '~/.local/share/applications-fake' }
+				{ '/usr/share/applications/' }
 			)
 		},
 
@@ -934,7 +932,7 @@ function theme:init()
 		parser = {
 			desktop_file_dirs = awful.util.table.join(
 				self.service.dfparser.desktop_file_dirs,
-				{ '~/.local/share/applications-fake' }
+				{ '/usr/share/applications/' }
 			)
 		},
 
