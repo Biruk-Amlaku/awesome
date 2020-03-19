@@ -29,8 +29,6 @@ function layouts:init()
 		awful.layout.suit.corner.sw,
 		awful.layout.suit.corner.se,
 		awful.layout.suit.spiral,
-		redflat.layout.grid,
-		redflat.layout.map,
 		awful.layout.suit.floating,
 		awful.layout.suit.max.fullscreen,
 	}
