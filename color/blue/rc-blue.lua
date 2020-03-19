@@ -173,126 +173,127 @@ awful.screen.connect_for_each_screen(
 	function(s)
 		-- wallpaper
 		env.wallpaper(s)
+		for out,_ in pairs(s.outputs) do
+			if out == "eDP-1" then
+				awful.tag.add("Main", {
+					icon = "wicon.main",
+					layout = al[1],
+					screen = s,
+					selected = true,
+				})
 
-		if s.index == 1 then
-			awful.tag.add("Main", {
-				icon = "wicon.main",
-				layout = al[1],
-				screen = s,
-				selected = true,
-			})
+				awful.tag.add("Message", {
+					icon = "wicon.message",
+					layout = al[1],
+					screen = s,
+				})
 
-			awful.tag.add("Message", {
-				icon = "wicon.message",
-				layout = al[1],
-				screen = s,
-			})
+				awful.tag.add("Web", {
+					icon = "wicon.web",
+					layout = al[1],
+					screen = s,
+				})
 
-			awful.tag.add("Web", {
-				icon = "wicon.web",
-				layout = al[1],
-				screen = s,
-			})
+				awful.tag.add("Doc", {
+					icon = "wicon.doc",
+					layout = al[1],
+					screen = s,
+				})
 
-			awful.tag.add("Doc", {
-				icon = "wicon.doc",
-				layout = al[1],
-				screen = s,
-			})
+				awful.tag.add("Media", {
+					icon = "wicon.media",
+					layout = al[1],
+					screen = s,
+				})
+			elseif out == "DP-1" then
+				awful.tag.add("Main", {
+					icon = "wicon.main",
+					layout = al[1],
+					screen = s,
+					selected = true,
+				})
 
-			awful.tag.add("Media", {
-				icon = "wicon.media",
-				layout = al[1],
-				screen = s,
-			})
-		elseif s.index == 2 then
-			awful.tag.add("Main", {
-				icon = "wicon.main",
-				layout = al[1],
-				screen = s,
-				selected = true,
-			})
+				awful.tag.add("Web", {
+					icon = "wicon.web",
+					layout = al[1],
+					screen = s,
+				})
 
-			awful.tag.add("Web", {
-				icon = "wicon.web",
-				layout = al[1],
-				screen = s,
-			})
+				awful.tag.add("Dev", {
+					icon = "wicon.dev",
+					layout = al[1],
+					screen = s,
+				})
 
-			awful.tag.add("Dev", {
-				icon = "wicon.dev",
-				layout = al[1],
-				screen = s,
-			})
+				awful.tag.add("Doc", {
+					icon = "wicon.doc",
+					layout = al[1],
+					screen = s,
+				})
 
-			awful.tag.add("Doc", {
-				icon = "wicon.doc",
-				layout = al[1],
-				screen = s,
-			})
+				awful.tag.add("Media", {
+					icon = "wicon.media",
+					layout = al[1],
+					screen = s,
+				})
 
-			awful.tag.add("Media", {
-				icon = "wicon.media",
-				layout = al[1],
-				screen = s,
-			})
+			elseif out == "HDMI-1" then
+				awful.tag.add("Main", {
+					icon = "wicon.main",
+					layout = al[1],
+					screen = s,
+					selected = true,
+				})
 
-		elseif s.index == 3 then
-			awful.tag.add("Main", {
-				icon = "wicon.main",
-				layout = al[1],
-				screen = s,
-				selected = true,
-			})
+				awful.tag.add("Web", {
+					icon = "wicon.web",
+					layout = al[1],
+					screen = s,
+				})
 
-			awful.tag.add("Web", {
-				icon = "wicon.web",
-				layout = al[1],
-				screen = s,
-			})
+				awful.tag.add("Dev", {
+					icon = "wicon.dev",
+					layout = al[1],
+					screen = s,
+				})
 
-			awful.tag.add("Dev", {
-				icon = "wicon.dev",
-				layout = al[1],
-				screen = s,
-			})
+				awful.tag.add("Doc", {
+					icon = "wicon.doc",
+					layout = al[1],
+					screen = s,
+				})
 
-			awful.tag.add("Doc", {
-				icon = "wicon.doc",
-				layout = al[1],
-				screen = s,
-			})
+				awful.tag.add("Media", {
+					icon = "wicon.media",
+					layout = al[1],
+					screen = s,
+				})
+			else 
+				awful.tag.add("Main", {
+					icon = "wicon.main",
+					layout = al[1],
+					screen = s,
+					selected = true,
+				})
 
-			awful.tag.add("Media", {
-				icon = "wicon.media",
-				layout = al[1],
-				screen = s,
-			})
-		else 
-			awful.tag.add("Main", {
-				icon = "wicon.main",
-				layout = al[1],
-				screen = s,
-				selected = true,
-			})
+				awful.tag.add("Web", {
+					icon = "wicon.web",
+					layout = al[1],
+					screen = s,
+				})
 
-			awful.tag.add("Web", {
-				icon = "wicon.web",
-				layout = al[1],
-				screen = s,
-			})
+				awful.tag.add("Doc", {
+					icon = "wicon.doc",
+					layout = al[1],
+					screen = s,
+				})
 
-			awful.tag.add("Doc", {
-				icon = "wicon.doc",
-				layout = al[1],
-				screen = s,
-			})
-
-			awful.tag.add("Media", {
-				icon = "wicon.media",
-				layout = al[1],
-				screen = s,
-			})
+				awful.tag.add("Media", {
+					icon = "wicon.media",
+					layout = al[1],
+					screen = s,
+				})
+			end
 		end
 
 		-- layoutbox widget
