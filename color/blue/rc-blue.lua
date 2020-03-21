@@ -309,38 +309,59 @@ awful.screen.connect_for_each_screen(
 		s.panel = awful.wibar({ position = "top", screen = s, height = 32 })
 
 		-- add widgets to the wibox
-		s.panel:setup {
-			layout = wibox.layout.align.horizontal,
-			{ -- left widgets
-				layout = wibox.layout.fixed.horizontal,
+		if s.index == 1 then
+			s.panel:setup {
+				layout = wibox.layout.align.horizontal,
+				{ -- left widgets
+					layout = wibox.layout.fixed.horizontal,
 
-				env.wrapper(layoutbox[s], "layoutbox", layoutbox.buttons),
-				separator,
-				env.wrapper(taglist[s], "taglist"),
-				separator,
-			},
-			{ -- middle widget
-				layout = wibox.layout.align.vertical,
-				expand = "outside",
+					env.wrapper(layoutbox[s], "layoutbox", layoutbox.buttons),
+					separator,
+					env.wrapper(taglist[s], "taglist"),
+					separator,
+				},
+				{ -- middle widget
+					layout = wibox.layout.fixed.horizontal,
+					expand = "outside",
 
-				nil,
-				env.wrapper(tasklist[s], "tasklist"),
-			},
-			{ -- right widgets
-				layout = wibox.layout.fixed.horizontal,
+					nil,
+					env.wrapper(tasklist[s], "tasklist"),
+				},
+				{ -- right widgets
+					layout = wibox.layout.fixed.horizontal,
 
-				separator,
-				env.wrapper(sysmon.widget.cpuram, "cpuram", sysmon.buttons.cpuram),
-				separator,
-				env.wrapper(volume.widget, "volume", volume.buttons),
-				env.wrapper(sysmon.widget.battery, "battery"),
-				separator,
-				env.wrapper(textclock.widget, "textclock"),
-				separator,
-				env.wrapper(tray.widget, "tray", tray.buttons),
-				-- separator,
-			},
-		}
+					separator,
+					env.wrapper(sysmon.widget.cpuram, "cpuram", sysmon.buttons.cpuram),
+					separator,
+					env.wrapper(volume.widget, "volume", volume.buttons),
+					env.wrapper(sysmon.widget.battery, "battery"),
+					separator,
+					env.wrapper(textclock.widget, "textclock"),
+					separator,
+					env.wrapper(tray.widget, "tray", tray.buttons),
+					-- separator,
+				},
+			}
+		else
+			s.panel:setup {
+				layout = wibox.layout.align.horizontal,
+				{ -- left widgets
+					layout = wibox.layout.fixed.horizontal,
+	
+					env.wrapper(layoutbox[s], "layoutbox", layoutbox.buttons),
+					separator,
+					env.wrapper(taglist[s], "taglist"),
+					separator,
+				},
+				{ -- middle widget
+					layout = wibox.layout.fixed.horizontal,
+					expand = "outside",
+	
+					nil,
+					env.wrapper(tasklist[s], "tasklist"),
+				},
+			}
+		end
 	end
 )
 
