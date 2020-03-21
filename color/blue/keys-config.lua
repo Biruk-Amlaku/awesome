@@ -608,7 +608,7 @@ function hotkeys:init(args)
 			{ description = "Open a terminal", group = "Actions" }
 		},
 		{
-			{ env.mod }, "F12", function() awful.spawn("xscreensaver-command -lock") end,
+			{ env.mod }, "F12", function() awful.spawn("lock") end,
 			{ description = "Lock the workstation", group = "Actions" }
 		},
 		{

@@ -19,7 +19,7 @@ function autostart.run()
 
     -- utils
     -- awful.spawn.with_shell("compton")
-    awful.spawn("xscreensaver -no-splash")
+    awful.spawn("xautolock -time 5 -locker lock &")
 
     -- apps
     -- awful.spawn.with_shell("clipflap")
