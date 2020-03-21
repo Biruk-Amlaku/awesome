@@ -205,39 +205,7 @@ awful.screen.connect_for_each_screen(
 					layout = al[1],
 					screen = s,
 				})
-			elseif out == "DP-1" then
-				awful.tag.add("Main", {
-					icon = "wicon.main",
-					layout = al[1],
-					screen = s,
-					selected = true,
-				})
-
-				awful.tag.add("Web", {
-					icon = "wicon.web",
-					layout = al[1],
-					screen = s,
-				})
-
-				awful.tag.add("Dev", {
-					icon = "wicon.dev",
-					layout = al[1],
-					screen = s,
-				})
-
-				awful.tag.add("Doc", {
-					icon = "wicon.doc",
-					layout = al[1],
-					screen = s,
-				})
-
-				awful.tag.add("Media", {
-					icon = "wicon.media",
-					layout = al[1],
-					screen = s,
-				})
-
-			elseif out == "HDMI-1" then
+			elseif out == "DP-1" or out == "HDMI-1" then
 				awful.tag.add("Main", {
 					icon = "wicon.main",
 					layout = al[1],
