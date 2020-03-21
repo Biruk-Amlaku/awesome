@@ -15,8 +15,8 @@ theme.path = awful.util.get_configuration_dir() .. "themes/colored"
 -- Main config
 ------------------------------------------------------------
 theme.panel_height        = 36 -- panel height
-theme.border_width        = 1  -- window border width
-theme.useless_gap         = 2  -- useless gap
+theme.border_width        = 2  -- window border width
+theme.useless_gap         = 3  -- useless gap
 
 -- Fonts
 ------------------------------------------------------------
@@ -24,7 +24,7 @@ theme.fonts = {
 	main     = "Roboto 13",      -- main font
 	menu     = "Roboto 13",      -- main menu font
 	tooltip  = "Roboto 13",      -- tooltip font
-	notify   = "Play bold 12",   -- redflat notify popup font
+	notify   = "Play bold 10",   -- redflat notify popup font
 	clock    = "Play bold 10",   -- textclock widget font
 	qlaunch  = "Play bold 12",   -- quick launch key label font
 	keychain = "Play bold 16",   -- key sequence tip font
@@ -171,7 +171,7 @@ function theme:update()
 	------------------------------------------------------------
 	self.widget.tasklist.winmenu.hide_action = { min = false, move = false }
 	self.widget.tasklist.tasktip.margin = { 8, 8, 4, 4 }
-	self.widget.tasklist.winmenu.tagmenu.width = 150
+	self.widget.tasklist.winmenu.tagmenu.width = 200
 
 	-- Floating widgets
 	--------------------------------------------------------------------------------
