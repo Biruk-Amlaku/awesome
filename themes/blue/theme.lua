@@ -26,9 +26,10 @@ theme.panel_height = 36 -- panel height
 theme.wallpapers = theme.path .. "/wallpaper/"
 
 theme.wallpaper = 	{	
-						"left_wallpaper.png",
-						"left_wallpaper.png",
-						"overhead_wallpaper.png",
+						"arrow.jpg",
+						"arrow.jpg",
+						"arrow.jpg",
+						"arrow.jpg",
 					}
 						
 
@@ -49,13 +50,13 @@ theme.desktop.grid = {
 }
 
 theme.desktop.places = {
-	netspeed = { 1, 3 },
-	ssdspeed = { 3, 1 },
 	hddspeed = { 1, 1 },
 	cpumem   = { 1, 2 },
-	transm   = { 1, 3 },
+	netspeed = { 1, 3 },
 	disks    = { 1, 4 },
-	thermal  = { 1, 5 }
+	ssdspeed = { 3, 1 },
+	transm   = { 1, 3 },
+	thermal  = { 1, 5 },
 }
 
 -- Desktop widgets
