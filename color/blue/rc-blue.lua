@@ -174,7 +174,7 @@ awful.screen.connect_for_each_screen(
 		-- wallpaper
 		env.wallpaper(s)
 		for out,_ in pairs(s.outputs) do
-			if out == "eDP-1" then
+			if out == "eDP1" then
 				awful.tag.add("Main", {
 					icon = "wicon.main",
 					layout = al[1],
@@ -205,7 +205,7 @@ awful.screen.connect_for_each_screen(
 					layout = al[1],
 					screen = s,
 				})
-			elseif out == "DP-1" or out == "HDMI-1" then
+			elseif out == "DP1" or out == "HDMI1" then
 				awful.tag.add("Main", {
 					icon = "wicon.main",
 					layout = al[1],
