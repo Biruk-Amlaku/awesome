@@ -688,6 +688,33 @@ function hotkeys:init(args)
 		},
 
 		{
+			-- {}, "XF86MonBrightnessUp", function() brightness({ step = 2 }) end,
+			{ env.mod }, "F10", function() brightness({ step = 2 }) end,
+			{ description = "Increase brightness", group = "Brightness control" }
+		},
+		{
+			-- {}, "XF86MonBrightnessDown", function() brightness({ step = 2, down = true }) end,
+			{ env.mod }, "F9", function() brightness({ step = 2, down = true }) end,
+			{ description = "Reduce brightness", group = "Brightness control" }
+		},
+
+		{
+			-- {}, "XF86AudioRaiseVolume", volume_raise,
+			{ env.mod }, "F8", volume_raise,
+			{ description = "Increase volume", group = "Volume control" }
+		},
+		{
+			-- {}, "XF86AudioLowerVolume", volume_lower,
+			{ env.mod }, "F7", volume_lower,
+			{ description = "Reduce volume", group = "Volume control" }
+		},
+		{
+			-- {}, "XF86AudioMute", volume_mute,
+			{ env.mod }, "F6", volume_mute,
+			{ description = "Mute audio", group = "Volume control" }
+		},
+
+		{
 			{}, "XF86MonBrightnessUp", function() brightness({ step = 2 }) end,
 			{ description = "Increase brightness", group = "Brightness control" }
 		},
