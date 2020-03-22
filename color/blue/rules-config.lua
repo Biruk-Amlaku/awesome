@@ -89,11 +89,11 @@ function rules:init(args)
 		},
 		{
 			rule = { class = "Telegram" },
-			properties = { screen = "eDP1", tag = "Message", switchtotag = true }
+			properties = { screen = "eDP-1", tag = "Message", switchtotag = true }
 		},
 		{
 			rule = { class = "Liferea" },
-			properties = { screen = "eDP1", tag = "Message" }
+			properties = { screen = "eDP-1", tag = "Message" }
 		},
 		{
 			rule = { class = "vlc" },
