@@ -69,6 +69,8 @@ function pulse:change_volume(args)
 	args = redutil.table.merge(change_volume_default_args, args or {})
 	local diff = args.down and -args.step or args.step
 
+	self._sink = get_default_sink({ type = self._type })
+
 	-- get current volume
 	local v = redutil.read.output(string.format("pacmd dump | grep 'set-%s-volume %s'", self._type, self._sink))
 	local parsed = string.match(v, "0x%x+")
