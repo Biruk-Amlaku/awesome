@@ -32,6 +32,59 @@ local function default_style()
 	return redutil.table.merge(style, redutil.table.check(beautiful, "widget.textclock") or {})
 end
 
+local function quotient(i, j)
+	return math.floor(i/j)
+end
+
+local function mod(i, j)
+	return math.floor(( i - ( j * quotient( i, j ) ) ))
+end
+
+local function gregorianToJDN(year, month, day)
+	s   = quotient ( year    ,   4 )
+			- quotient ( year - 1,   4 )
+			- quotient ( year    , 100 )
+			+ quotient ( year - 1, 100 )
+			+ quotient ( year    , 400 )
+			- quotient ( year - 1, 400 )
+
+	t   = quotient ( 14 - month, 12 )
+
+	n   = 31 * t * ( month - 1 )
+			+ ( 1 - t ) * ( 59 + s + 30 * (month - 3) + quotient( (3*month - 7), 5) )
+			+ day - 1
+
+	j   = 	1721426
+			+ 365 * (year - 1)
+			+ quotient ( year - 1,   4 )
+			- quotient ( year - 1, 100 )
+			+ quotient ( year - 1, 400 )
+			+ n
+
+	return j;
+end
+
+local function ethiopian_date()
+
+	year = os.date("%Y")
+	month = os.date("%m")
+	day = os.date("%d")
+
+	era = 1723856
+	jdn = gregorianToJDN(year, month, day)
+
+	r = mod( (jdn - era), 1461 )
+	n = mod( r, 365 ) + 365 * quotient( r, 1460 )
+	
+	et_year = 4 * quotient( (jdn - era), 1461 )
+		+ quotient( r, 365 )
+		- quotient( r, 1460 )
+	et_month = quotient( n, 30 ) + 1
+	et_day   = mod( n, 30 ) + 1 
+
+	return et_day .. " / " .. et_month .. " / " .. et_year .. " Et."
+end
+
 -- Create a textclock widget. It draws the time it is in a textbox.
 -- @param format The time format. Default is " %a %b %d, %H:%M ".
 -- @param timeout How often update the time. Default is 60.
@@ -62,7 +115,7 @@ function textclock.new(args, style)
 	timer:connect_signal("timeout",
 		function()
 			widg:set_markup('<span color="' .. style.color.text .. '">' .. os.date(timeformat) .. "</span>")
-			if args.dateformat then tp:set_text(os.date(args.dateformat)) end
+			if args.dateformat then tp:set_text(ethiopian_date()) end
 		end)
 	timer:start()
 	timer:emit_signal("timeout")
